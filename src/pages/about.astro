@@ -18,6 +18,16 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style>
+      h1 {
+        color: rgb(255, 0, 0);
+        font-siez: 4rem;
+      }
+      .skill {
+        color: green;
+        fonrt-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <a href="/">首页</a>
@@ -25,12 +35,7 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
     <a href="/blog/">博客</a>
 
     <h1>{pageTitle}</h1>
-    <style>
-        hi {
-            color: red;
-            font-siez: 4rem;
-        }
-    </style>
+
     <h2>……和我的新 Astro 网站！</h2>
 
     <p>
@@ -42,16 +47,20 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
       随着我完成更多教程，该站点将更新，所以请继续查看我的旅程将如何进行吧！
     </p>
     <p>以下是关于我的几个事实：</p>
-<ul>
-  <li>我的名字是{identity.firstName}.</li>
-  <li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
-  {identity.hobbies.length >= 2 &&
-    <li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
-  }
-</ul>
-<p>我的技能是：</p>
-<ul>
-  {skills.map((skill) => <li>{skill}</li>)}
-</ul>
+    <ul>
+      <li>我的名字是{identity.firstName}.</li>
+      <li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>我的技能是：</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
   </body>
 </html>
