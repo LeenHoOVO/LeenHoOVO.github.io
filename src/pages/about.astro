@@ -11,30 +11,130 @@ const identity = {
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content="Astro" />
     <title>{pageTitle}</title>
     <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      header {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        animation: slideIn 2s ease-in-out;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1.2em;
+        margin: 0 15px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      nav a:hover {
+        color: #0056b3;
+      }
+
       h1 {
         color: rgb(255, 0, 0);
-        font-siez: 4rem;
+        font-size: 4rem;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out;
       }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        animation: slideIn 2s ease-in-out;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        animation: slideIn 2s ease-in-out;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        animation: fadeIn 2s ease-in-out;
+      }
+
       .skill {
-        color: green;
-        fonrt-weight: bold;
+        margin: 10px 0;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        transition:
+          background-color 0.3s ease-in-out,
+          transform 0.3s ease-in-out;
+        animation: slideIn 2s ease-in-out;
+      }
+
+      .skill:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <a href="/">首页</a>
-    <a href="/about/">关于</a>
-    <a href="/blog/">博客</a>
+    <header>
+      <h1>{pageTitle}</h1>
+    </header>
 
-    <h1>{pageTitle}</h1>
+    <nav>
+      <a href="/">首页</a>
+      <a href="/about/">关于</a>
+      <a href="/blog/">博客</a>
+    </nav>
 
     <h2>……和我的新 Astro 网站！</h2>
 
@@ -58,7 +158,7 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
         )
       }
     </ul>
-    <p>我的技能是：</p>
+    <p>我的技能：</p>
     <ul>
       {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
